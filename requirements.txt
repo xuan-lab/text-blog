@@ -1,0 +1,5 @@
+Flask
+Markdown
+python-frontmatter
+Werkzeug
+Flask-WTF

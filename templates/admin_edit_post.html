@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ 'Edit Post' if is_edit else 'Create New Post' }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Edit Post' if is_edit else 'Create New Post' }}</h1>
+    <form method="post">
+        {{ form.hidden_tag() }} {# CSRF token #}
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title(size=50) }}<br> {# Removed explicit value, WTForms handles it #}
+            {% for error in form.title.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        {% if not is_edit %}
+        <div>
+            {{ form.slug.label }}<br>
+            {{ form.slug(size=50) }}<br> {# Removed explicit value #}
+            <small>If left blank, a slug will be generated from the title. Use lowercase letters, numbers, and hyphens.</small><br>
+            {% for error in form.slug.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        {% else %}
+            {# For existing posts, the slug is not directly part of the form to prevent editing #}
+            <p><small>Slug (URL part): {{ post_slug }} (Cannot be changed after creation)</small></p> {# Use post_slug variable #}
+        {% endif %}
+
+        <div>
+            {{ form.content.label }}<br>
+            {{ form.content(rows=20, cols=80) }}<br> {# Removed explicit text, WTForms handles it #}
+            {% for error in form.content.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+            <a href="{{ url_for('admin_dashboard') }}">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

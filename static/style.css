@@ -1,0 +1,309 @@
+/* Basic Reset & Body Style */
+body {
+    font-family: monospace, "Courier New", Courier;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark grey text */
+}
+
+/* Container for centering content */
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto; /* Center content */
+    padding: 10px 0;
+}
+
+/* Header and Navigation */
+header {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333333;
+    margin-right: 15px;
+}
+
+nav a:hover, nav a:focus {
+    text-decoration: underline;
+    color: #000000; /* Black on hover/focus */
+}
+
+/* Main Content Area */
+main {
+    min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #000000; /* Black headings */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+
+/* Paragraphs */
+p {
+    margin-bottom: 1em;
+}
+
+/* Links */
+a {
+    color: blue;
+    text-decoration: none; /* Optional: removes underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Optional: adds underline on hover */
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 20px; /* Indent lists */
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Article specific styles */
+article .date {
+    color: #666666; /* Lighter grey for dates */
+    font-size: 0.9em;
+    margin-bottom: 1.5em;
+}
+
+.post-content {
+    margin-top: 1em;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote {
+    margin-bottom: 1em;
+}
+
+.post-content pre {
+    background-color: #f0f0f0; /* Light grey background for code blocks */
+    padding: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling for long code lines */
+    border: 1px solid #dddddd;
+    border-radius: 0; /* Sharp corners for text aesthetic */
+}
+
+.post-content code {
+    font-family: monospace, "Courier New", Courier;
+    background-color: #f0f0f0;
+    padding: 0.1em 0.3em;
+}
+
+.post-content blockquote {
+    border-left: 2px solid #cccccc;
+    padding-left: 10px;
+    margin-left: 0;
+    font-style: italic;
+    color: #555555;
+}
+
+/* Forms - Basic Styling for Readability */
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Bolding labels for clarity */
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: monospace, "Courier New", Courier;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #333333;
+    width: calc(100% - 18px); /* Full width minus padding and border */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 0; /* Sharp corners */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #000000; /* Black border on focus */
+    box-shadow: 0 0 0 1px #000000; /* Subtle focus indicator */
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical; /* Allow vertical resize */
+}
+
+button,
+input[type="submit"] {
+    font-family: monospace, "Courier New", Courier;
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 8px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0; /* Sharp corners */
+    display: inline-block; /* Align with other elements like links */
+}
+
+button:hover,
+input[type="submit"]:hover,
+button:focus,
+input[type="submit"]:focus {
+    background-color: #000000;
+    border-color: #000000;
+    outline: none;
+}
+
+/* Link-styled button for delete actions etc. */
+.link-button {
+    background: none;
+    border: none;
+    color: #333333;
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+    font-family: monospace, "Courier New", Courier;
+    font-size: 1em; /* Match surrounding text size */
+    cursor: pointer;
+}
+
+.link-button:hover,
+.link-button:focus {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Error messages for forms */
+.error,
+span.error {
+    color: #D32F2F; /* Red color for errors */
+    font-size: 0.9em;
+    display: block; /* Ensure span.error takes its own line if needed */
+    margin-top: 3px;
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin-bottom: 15px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.flash-messages div {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 0; /* Sharp corners */
+}
+
+.flash-success {
+    color: #1B5E20; /* Dark Green */
+    background-color: #C8E6C9; /* Light Green */
+    border-color: #A5D6A7; /* Green border */
+}
+
+.flash-error {
+    color: #B71C1C; /* Dark Red */
+    background-color: #FFCDD2; /* Light Red */
+    border-color: #EF9A9A; /* Red border */
+}
+
+.flash-info {
+    color: #0D47A1; /* Dark Blue */
+    background-color: #BBDEFB; /* Light Blue */
+    border-color: #90CAF9; /* Blue border */
+}
+
+/* Admin Dashboard Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0; /* Light grey for table headers */
+    font-weight: bold;
+}
+
+/* Small text utility */
+small {
+    font-size: 0.8em;
+    color: #555555;
+    display: block; /* Make small text take its own line for better readability */
+    margin-top: 3px;
+}
+
+/* Ensure admin form elements have consistent styling */
+#admin_login_page form div,
+#admin_edit_post_page form div {
+    margin-bottom: 20px; /* Increased spacing for admin forms */
+}
+
+#admin_login_page label,
+#admin_edit_post_page label {
+    margin-bottom: 8px; /* More space below labels in admin forms */
+}
+
+/* Specificity for admin form inputs if needed, though general should cover */
+#admin_login_page input[type="text"],
+#admin_login_page input[type="password"],
+#admin_edit_post_page input[type="text"],
+#admin_edit_post_page textarea {
+    width: 100%; /* Ensure they take full available width */
+}
+
+/* Responsive adjustments (optional, but good practice) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    nav a {
+        display: block; /* Stack nav links on small screens */
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #cccccc;
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666666;
+}

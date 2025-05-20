@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block content %}
+    <h1>Blog Posts</h1>
+    {% if posts %}
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <h2><a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a></h2>
+                    <p class="date">Published on: {{ post.date.strftime('%Y-%m-%d') if post.date else 'N/A' }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts yet. Check back later!</p>
+    {% endif %}
+    {% if session.admin_logged_in %}
+        <p><a href="{{ url_for('admin_new_post') }}">Create New Post</a></p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+    <h1>Admin Login</h1>
+    <form method="post">
+        {{ form.hidden_tag() }} {# CSRF token #}
+        <div>
+            {{ form.username.label }}<br>
+            {{ form.username(size=30) }}<br>
+            {% for error in form.username.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.password.label }}<br>
+            {{ form.password(size=30) }}<br>
+            {% for error in form.password.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
